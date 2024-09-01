@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { FaGoogle } from "react-icons/fa"
@@ -5,6 +7,8 @@ import logo from "@/assets/images/logo-white.png"
 import profileDefault from "@/assets/images/profile.png"
 
 const Navbar = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
     return (
         <nav className="bg-blue-700 border-b border-blue-500">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -12,6 +16,7 @@ const Navbar = () => {
                     <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                         {/* <!-- Mobile menu button--> */}
                         <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             type="button"
                             id="mobile-dropdown-button"
                             className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -164,31 +169,31 @@ const Navbar = () => {
             </div>
 
             {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-            <div
-                className="hidden"
-                id="mobile-menu">
-                <div className="space-y-1 px-2 pb-3 pt-2">
-                    <Link
-                        href="/"
-                        className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium">
-                        Home
-                    </Link>
-                    <Link
-                        href="/properties"
-                        className="text-white block rounded-md px-3 py-2 text-base font-medium">
-                        Properties
-                    </Link>
-                    <Link
-                        href="/properties/add"
-                        className="text-white block rounded-md px-3 py-2 text-base font-medium">
-                        Add Property
-                    </Link>
-                    <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5">
-                        <i className="fa-brands fa-google mr-2"></i>
-                        <span>Login or Register</span>
-                    </button>
+            {isMobileMenuOpen && (
+                <div id="mobile-menu">
+                    <div className="space-y-1 px-2 pb-3 pt-2">
+                        <Link
+                            href="/"
+                            className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium">
+                            Home
+                        </Link>
+                        <Link
+                            href="/properties"
+                            className="text-white block rounded-md px-3 py-2 text-base font-medium">
+                            Properties
+                        </Link>
+                        <Link
+                            href="/properties/add"
+                            className="text-white block rounded-md px-3 py-2 text-base font-medium">
+                            Add Property
+                        </Link>
+                        <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5">
+                            <i className="fa-brands fa-google mr-2"></i>
+                            <span>Login or Register</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            )}
         </nav>
     )
 }
