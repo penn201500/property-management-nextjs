@@ -158,11 +158,11 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* <!-- Mobile menu, show/hide based on menu state. Positioned absolutely --> */}
+            {/* <!-- Mobile menu, show/hide based on menu state. Positioned absolutely with transparency --> */}
             {isMobileMenuOpen && (
                 <div
                     id="mobile-menu"
-                    className="absolute inset-x-0 top-20 z-40 bg-blue-700 shadow-md">
+                    className="absolute inset-x-0 top-20 z-40 bg-blue-700 bg-opacity-75 shadow-md">
                     <div className="space-y-1 px-2 pt-2 pb-3">
                         <Link
                             href="/"
