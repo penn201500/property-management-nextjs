@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 let connected = false
 
 async function connectDB() {
-    mongoose.set("stricQuery", true)
+    mongoose.set("strictQuery", true)
 
     // If the db is connected, don't connect again
     if (connected) {
