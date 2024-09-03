@@ -1,7 +1,11 @@
 import PropertyCard from "@/components/PropertyCard"
-import properties from "@/properties.json"
+import Property from "@/models/Property"
+import connectDB from "@/utils/connectDB"
 
-const PropertiesPage = () => {
+const PropertiesPage = async () => {
+    await connectDB()
+    const properties = await Property.find({}).sort({ createdAt: -1 }).lean()
+
     return (
         <section className="px-4 py-6">
             <div className="container-xl lg:container mx-auto px-4 py-6">
