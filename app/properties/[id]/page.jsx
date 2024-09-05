@@ -3,6 +3,7 @@ import Property from "@/models/Property"
 import PropertyHeaderImage from "@/components/PropertyHeaderImage"
 import BackToProperties from "@/components/BackToProperties"
 import PropertyDetails from "@/components/PropertyDetails"
+import PropertyImages from "@/components/PropertyImages"
 
 const PropertyPage = async ({ params }) => {
     await connectDB()
@@ -13,6 +14,7 @@ const PropertyPage = async ({ params }) => {
             <PropertyHeaderImage image={property.images[0]} />
             <BackToProperties />
             <PropertyDetails property={property} />
+            <PropertyImages images={property.images} />
         </>
     )
 }
