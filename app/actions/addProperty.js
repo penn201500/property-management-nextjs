@@ -61,8 +61,6 @@ async function addProperty(formData) {
         imageUrls.push(image.secure_url)
     }
 
-    console.log(`Here are the image URLs: ${imageUrls}`);
-
     propertyData.images = imageUrls
 
     // // Print the FormData contents
