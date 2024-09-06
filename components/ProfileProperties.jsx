@@ -3,6 +3,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import deleteProperty from "@/app/actions/deleteProperty"
+import { toast } from "react-toastify"
 
 const ProfileProperties = ({ properties: initialProperties }) => {
     const [properties, setProperties] = useState(initialProperties)
@@ -15,12 +16,15 @@ const ProfileProperties = ({ properties: initialProperties }) => {
             const result = await deleteProperty(propertyId)
 
             if (result?.error) {
-                alert(result.error)
+                console.log(result.error)
+                toast.error("Property deleted failed")
                 return
             }
 
             const updatedProperties = properties.filter(property => property._id !== propertyId)
             setProperties(updatedProperties)
+
+            toast.success("Property deleted successfully")
         }
     }
 
