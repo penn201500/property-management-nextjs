@@ -72,7 +72,7 @@ async function addProperty(formData) {
     const newProperty = new Property(propertyData)
     await newProperty.save()
 
-    revalidatePath("/", "addProperty")
+    revalidatePath("/", "layout")
 
     redirect(`/properties/${newProperty._id}`)
 }

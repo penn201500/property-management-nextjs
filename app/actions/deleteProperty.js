@@ -37,7 +37,7 @@ async function deleteProperty(propertyId) {
     // Delete property
     await property.deleteOne()
     // Revalidata cache
-    revalidatePath("/", "deleteProperties")
+    revalidatePath("/", "layout")
 }
 
 export default deleteProperty
