@@ -1,7 +1,13 @@
+"use client"
+
 import updateProperty from "@/app/actions/updateProperty"
 
 const PropertyEditForm = ({ property }) => {
-    const updatePropertyById = updateProperty.bind(null, property._id)
+    // const updatePropertyById = updateProperty.bind(null, property._id)
+    const updatePropertyById = async formData => {
+        // Here, Next.js will treat this as a server-side function
+        await updateProperty(property._id, formData)
+    }
 
     return (
         <form action={updatePropertyById}>
