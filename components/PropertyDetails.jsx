@@ -1,5 +1,7 @@
 import { FaTimes, FaBed, FaBath, FaRulerCombined, FaCheck, FaMapMarker } from "react-icons/fa"
-const PropertyDetails = ({ property }) => {
+import PropertyMap from "./PropertyMap"
+
+const PropertyDetails = async ({ property }) => {
     return (
         <section className="bg-blue-50">
             <div className="container m-auto py-10 px-6">
@@ -63,7 +65,7 @@ const PropertyDetails = ({ property }) => {
                         </div>
                         {/* <!-- Map --> */}
                         <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                            <div id="map"></div>
+                            <PropertyMap Property={property} />
                         </div>
                     </main>
                 </div>
