@@ -1,5 +1,8 @@
 import { FaTimes, FaBed, FaBath, FaRulerCombined, FaCheck, FaMapMarker } from "react-icons/fa"
 import PropertyMap from "./PropertyMap"
+import BookmarkButton from "@/components/BookmarkButton"
+import ShareButton from "@/components/ShareButton"
+import PropertyContactForm from "@/components/PropertyContactForm"
 
 const PropertyDetails = async ({ property }) => {
     return (
@@ -68,6 +71,11 @@ const PropertyDetails = async ({ property }) => {
                             <PropertyMap property={property} />
                         </div>
                     </main>
+                    <aside className="space-y-4">
+                        <BookmarkButton />
+                        <ShareButton />
+                        <PropertyContactForm />
+                    </aside>
                 </div>
             </div>
         </section>
