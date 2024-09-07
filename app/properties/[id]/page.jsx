@@ -4,10 +4,12 @@ import PropertyHeaderImage from "@/components/PropertyHeaderImage"
 import BackToProperties from "@/components/BackToProperties"
 import PropertyDetails from "@/components/PropertyDetails"
 import PropertyImages from "@/components/PropertyImages"
+import { convertToSerializableObject } from "@/utils/convertToObjects"
 
 const PropertyPage = async ({ params }) => {
     await connectDB()
-    const property = await Property.findById(params.id).lean()
+    const propertyDoc = await Property.findById(params.id).lean()
+    const property = propertyDoc ? convertToSerializableObject(propertyDoc) : null
 
     return (
         <>
