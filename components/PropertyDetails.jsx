@@ -65,7 +65,7 @@ const PropertyDetails = async ({ property }) => {
                         </div>
                         {/* <!-- Map --> */}
                         <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                            <PropertyMap Property={property} />
+                            <PropertyMap property={property} />
                         </div>
                     </main>
                 </div>
