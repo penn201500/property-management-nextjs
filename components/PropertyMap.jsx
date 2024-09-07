@@ -46,9 +46,6 @@ const PropertyMap = ({ property }) => {
                     longitude: lng,
                 })
 
-                console.log(`🚀 ~ file: PropertyMap.jsx:36 ~ fetchCoords ~ lng:\n`, lng)
-
-                console.log(`🚀 ~ file: PropertyMap.jsx:36 ~ fetchCoords ~ lat:\n`, lat)
             } catch (error) {
                 console.log("There was an error", error)
                 setGeocodeError(true)
