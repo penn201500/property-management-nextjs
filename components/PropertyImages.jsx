@@ -19,7 +19,7 @@ const PropertyImages = ({ images }) => {
                                     alt=""
                                     ref={ref}
                                     onClick={open}
-                                    className="object-hover h-[400px] mx-auto rounded-xl"
+                                    className="object-hover h-[400px] mx-auto rounded-xl cursor-pointer"
                                     width={1800}
                                     height={400}
                                     priority={true}
@@ -43,7 +43,7 @@ const PropertyImages = ({ images }) => {
                                                 alt=""
                                                 ref={ref}
                                                 onClick={open}
-                                                className="object-hover h-[400px] w-full rounded-xl"
+                                                className="object-hover h-[400px] w-full rounded-xl cursor-pointer"
                                                 width={1800}
                                                 height={400}
                                                 priority={true}
