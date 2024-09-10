@@ -19,11 +19,11 @@ const PropertyCard = ({ property }) => {
             <Link href={`/properties/${property._id}`}>
                 <Image
                     src={property.images[0]}
-                    alt=""
-                    height="0"
-                    width="0"
+                    alt={property.name}
                     sizes="100vw"
-                    className="w-full h-auto rounded-t-xl"
+                    width={400}
+                    height={0}
+                    className="w-full aspect-[4/3] rounded-t-xl"
                 />
             </Link>
             <div className="p-4">
@@ -35,8 +35,7 @@ const PropertyCard = ({ property }) => {
 
                 <div className="flex justify-center gap-4 text-gray-500 mb-4">
                     <p>
-                        <FaBed className="md:hidden lg:inline" />
-                        {property.beds} <span className="md:hidden lg:inline">Beds</span>
+                        <FaBed className="md:hidden lg:inline" /> {property.beds} <span className="md:hidden lg:inline">Beds</span>
                     </p>
                     <p>
                         <FaBath className="md:hidden lg:inline" /> {property.baths} <span className="md:hidden lg:inline">Baths</span>
