@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Property Management Next.js
 
-First, run the development server:
+## Overview
+
+This project is a Property Management web application built with Next.js. It allows users to browse properties, view detailed property information, and manage property listings. Authentication is handled through NextAuth with Google as the login provider.
+
+## Features
+
+- Browse properties with detailed information.
+- Google OAuth for authentication and property management.
+- Responsive design for mobile and desktop devices.
+- Image management using Cloudinary.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Photoswipe](https://photoswipe.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Mapbox](https://www.mapbox.com/)
+- [React Map GL](https://visgl.github.io/react-map-gl/)
+- [React Geocode](https://www.npmjs.com/package/react-geocode)
+- [React Spinners](https://www.npmjs.com/package/react-spinners)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
+- [React Share](https://www.npmjs.com/package/react-share)
+
+## Prerequisites
+
+- Node.js version 18 or higher
+- MongoDB Atlas account and a cluster. Sign up and create a cluster at [MongoDB](https://www.mongodb.com/)
+- Cloudinary account. Sign up at [Cloudinary](https://cloudinary.com/)
+- Google console account. Sign up at [Google Cloud](https://console.cloud.google.com/)
+- Mapbox account. Sign up at [Mapbox](https://www.mapbox.com/)
+
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/penn201500/property-management-nextjs
+cd property-management-nextjs
+```
+
+### 2. Install Dependencies
+
+Make sure you have `node` and `npm` installed, then run:
+
+```bash
+npm install
+```
+
+### 3. Set up Environment Variables
+
+Create a `.env` file in the root directory and add the following environment variables:
+
+```bash
+MONGODB_URI=mongodb+srv://mongo:...
+NEXT_PUBLIC_DOMAIN=http://localhost:3000
+NEXT_PUBLIC_API_DOMAIN=http://localhost:3000/api
+GOOGLE_CLIENT_ID=<your-google-client-id>
+GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL_INTERNAL=http://localhost:3000
+NEXTAUTH_SECRET=<random-string>
+CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>
+NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY=<your-google-geocoding-api-key>
+NEXT_PUBLIC_MAPBOX_TOKEN=<your-mapbox-token>
+```
+
+- Generate a random string for `NEXTAUTH_SECRET` using the following command:
+
+```bash
+openssl rand -base64 32
+```
+
+### 4. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 5. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To create an optimized production build, run:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## File Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **app/**: Main application logic and page components.
+- **components/**: Reusable UI components.
+- **context/**: Global state management using React Context API.
+- **models/**: Mongoose models for MongoDB.
+- **public/**: Static assets.
+- **utils/**: Utility functions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.
