@@ -25,6 +25,13 @@ const Navbar = () => {
         setAuthProviders()
     }, [])
 
+    // Add this useEffect to hide profile menu on route change
+    useEffect(() => {
+        if (isProfileMenuOpen) {
+            setIsProfileMenuOpen(false)
+        }
+    }, [pathname]) // This triggers whenever the URL changes
+
     return (
         <nav className="bg-blue-700 border-b border-blue-500">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
