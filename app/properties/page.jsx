@@ -3,7 +3,7 @@ import Property from "@/models/Property"
 import connectDB from "@/config/database"
 import Pagination from "@/components/Pagination"
 
-const PropertiesPage = async ({ searchParams: { pageSize = 5, page = 1 } }) => {
+const PropertiesPage = async ({ searchParams: { pageSize = 6, page = 1 } }) => {
     await connectDB()
     const skip = (page - 1) * pageSize
     const properties = await Property.find({}).sort({ createdAt: -1 }).skip(skip).limit(pageSize)
