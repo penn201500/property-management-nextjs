@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 import { setDefaults, fromAddress } from "react-geocode"
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api"
 import Spinner from "@/components/Spinner"
-import pin from "@/assets/images/pin.svg"
-import Image from "next/image"
 
 const PropertyMap = ({ property }) => {
     const [lat, setLat] = useState(null)
@@ -12,17 +10,19 @@ const PropertyMap = ({ property }) => {
     const [loading, setLoading] = useState(true)
     const [geocodeError, setGeocodeError] = useState(false)
 
-    // Load the Google Maps script
+    // Load the Google Maps script - call this hook first before any conditional rendering
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY,
     })
 
     // Set Google Geocode defaults
-    setDefaults({
-        key: process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY,
-        language: "en",
-        region: "us",
-    })
+    useEffect(() => {
+        setDefaults({
+            key: process.env.NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY,
+            language: "en",
+            region: "us",
+        })
+    }, [])
 
     useEffect(() => {
         const fetchCoords = async () => {
@@ -45,9 +45,10 @@ const PropertyMap = ({ property }) => {
             }
         }
         fetchCoords()
-    }, [])
+    }, [property])
 
-    if (loading || !isLoaded) {
+    // Ensure consistent render for hooks
+    if (!isLoaded) {
         return <Spinner loading={loading} />
     }
 
@@ -56,7 +57,9 @@ const PropertyMap = ({ property }) => {
     }
 
     return (
-        isLoaded && (
+        !loading &&
+        lat &&
+        lng && (
             <GoogleMap
                 center={{ lat: lat, lng: lng }}
                 zoom={15}
