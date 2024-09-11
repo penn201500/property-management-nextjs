@@ -6,6 +6,9 @@ import profileDefault from "@/assets/images/profile.png"
 import ProfileProperties from "@/components/ProfileProperties"
 import { convertToSerializableObject } from "@/utils/convertToObjects"
 
+// Mark page as dynamic
+export const dynamic = "force-dynamic"
+
 const ProfilePage = async () => {
     await connectDB()
     const sessionUser = await getSessionUser()

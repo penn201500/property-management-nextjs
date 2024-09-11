@@ -3,6 +3,9 @@ import connectDB from "@/config/database"
 import User from "@/models/User"
 import { getSessionUser } from "@/utils/getSessionUser"
 
+// Mark page as dynamic
+export const dynamic = "force-dynamic"
+
 const SavedPropertiesPage = async () => {
     const { userId } = await getSessionUser()
     const { bookmarks } = await User.findById(userId).populate("bookmarks")
